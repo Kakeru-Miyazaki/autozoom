@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=AUTOZOOM
+Name[jp]=AUTOZOOM
+Comment=AUTOZOOM
+Icon=/home/kakeru/autozoom/icon.jpg
+Exec=bash /home/kakeru/autozoom/main.sh
+
+Terminal=true
