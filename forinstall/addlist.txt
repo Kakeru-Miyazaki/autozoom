@@ -1,0 +1,2 @@
+alias autozoom="bash ~/autozoom/main.sh"
+

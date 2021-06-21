@@ -1,0 +1,42 @@
+#!bin/bash
+path1=`pwd`
+cd 
+path=`pwd`
+username=`python3 $path1/forinstall/getname.py "$path"`
+
+function my_error() {
+    # エラー処理
+    echo
+    echo "Please put \"autozoom\" folder below" $username "and try again."
+    sleep 5
+    exit 1
+}
+
+function my_error1() {
+    # エラー処理
+    echo
+    echo "cannot compile C programs. please install gcc."
+    sleep 5
+    exit 1
+}
+
+
+function my_error2() {
+    # エラー処理
+    echo
+    echo "cannot add autozoomcommand in ~/.bashrc"
+    sleep 5
+    exit 1
+}
+
+cd ~/autozoom || my_error
+#rm -rf .git
+
+echo Welcome $username
+sed -i -e "s/kakeru/$username/g" ~/autozoom/forinstall/autozoom.desktop
+cd ~/autozoom/forinstall
+cat addlist.txt >> ~/.bashrc || my_error2
+chmod +x *desktop
+cp *.desktop ~/.local/share/applications
+source ~/.bashrc
+echo successfully installed
