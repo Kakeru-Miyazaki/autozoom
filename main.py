@@ -4,11 +4,14 @@ youbi=sys.argv[1]
 now=sys.argv[2]
 mydict = {'Mon':'月','Tue':'火','Wed':'水','Thu':'木','Fri':'金','Sat':'土','Sun':'日'}
 ans = ["first" for i in range(3)]
-while True:
-    new = list(input().split())
+fname = 'data.txt'
+file = open(fname, encoding='utf-8')
+
+for row in file:
+    new = list(row.split())
     #print(new)
-    if (new[0] == "Z"):
-        break
+    #if (new[0] == "Z"):
+    #    break
     if ((new[0] == youbi or mydict[new[0]] == youbi)and int(new[1]) < int(now)):
         ans = copy.copy(new)
 if (ans[0]!="first"):
